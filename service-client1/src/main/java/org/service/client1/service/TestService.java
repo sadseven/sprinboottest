@@ -47,4 +47,14 @@ public class TestService {
 		return personRepository.update(name, id);
 	}
 	
+	public List<Person> findByCountryName(String name){
+		return personRepository.findByCountry_Name(name);
+	}
+	
+	public List<Person> findByCountryNameAndSexAndName(String countryName, int sex, String personName){
+		return personRepository.findByCountry_NameAndSexAndName(countryName, sex, personName);
+	}
+	
+	
+	
 }

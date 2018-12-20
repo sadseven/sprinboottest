@@ -19,4 +19,8 @@ public interface PersonRepository extends JpaRepository<Person,Integer>{
 	@Query(value="UPDATE Person per SET per.name= ?1 WHERE per.id= ?2")
 	int update(String name, int id);
 	
+	List<Person> findByCountry_Name(String name);
+	
+	List<Person> findByCountry_NameAndSexAndName(String countryName, int sex, String personName);
+	
 }

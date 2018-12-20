@@ -32,6 +32,28 @@ public class TestController {
 		}
 		return str;
 	}
+	
+	
+	@RequestMapping("/getByCountName")
+	public String getByCountName(@RequestParam(required = false) String name) {
+		List<Person> findAll = testService.findByCountryName(name);
+		String str = "";
+		for (Person person : findAll) {
+			str += person.toString();
+		}
+		return str;
+	}
+	
+	@RequestMapping("/getByCountNameAndSexAndName")
+	public String getByCountName(String cName, int sex, String pName) {
+		List<Person> findAll = testService.findByCountryNameAndSexAndName(cName, sex, pName);
+		String str = "";
+		for (Person person : findAll) {
+			str += person.toString();
+		}
+		return str;
+	}
+	
 
 	@RequestMapping("/update")
 	public String update(Person person) {

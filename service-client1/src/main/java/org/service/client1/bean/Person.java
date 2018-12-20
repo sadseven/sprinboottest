@@ -1,13 +1,16 @@
 package org.service.client1.bean;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="person")
+@Table(name = "person")
 public class Person {
 	@Id
 	@GeneratedValue
@@ -16,6 +19,10 @@ public class Person {
 	private String name;
 	@Column(name = "sex", length = 20)
 	private int sex;
+
+	@ManyToOne(cascade = { CascadeType.ALL })
+	@JoinColumn(name = "country_id")
+	private Country country;
 
 	public int getId() {
 		return id;
